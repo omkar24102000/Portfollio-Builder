@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Personal Information</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link th:rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}" />
+
+<link th:rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css}" />
+<link th:rel="stylesheet"
+	th:href="@{http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css}" />
+
+<script
+	th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js}"></script>
+<script
+	th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+
+<script
+	th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js}"></script>
+<script
+	th:src="@{http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js}"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h3>Profile Information Form</h3>
+			<form action="#" th:action="@{/profile}" th:object="${profileDTO}"
+				method="post">
+				<input type="hidden" id="profileId" name="profileId" />
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapse1">Personal Information</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div class="col-md-12">
+									<div class="form-group col-md-3">
+										<label for="name">Name:</label> <input type="text"
+											class="form-control" id="name" placeholder="Enter name"
+											name="name" minlength="1" maxlength="20" required
+											th:field="*{name}" />
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group col-md-3">
+										<label for="email">Email:</label> <input type="email"
+											class="form-control" id="email" placeholder="Enter email"
+											name="email" th:field="*{email}" />
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group col-md-3">
+										<label for="mobileNumber">Mobile Number:</label> <input
+											type="text" class="form-control" id="mobileNumber"
+											placeholder="Enter Mobile Number" name="mobileNumber"
+											minlength="10" maxlength="10" required
+											th:field="*{mobileNumber}" />
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-12" for="gender">Gender:</label>
+										<div class="col-md-3">
+											<label class="radio-inline"><input type="radio"
+												name="gender" id="maleGender" value="male"
+												th:field="*{gender}" checked>Male</label> <label
+												class="radio-inline"> <input type="radio"
+												name="gender" id="femaleGender" th:field="*{gender}"
+												value="female">Female
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+
+									<div class="form-group col-md-3">
+										<label for="name">City:</label> <input type="text"
+											class="form-control" id="city" placeholder="Enter City Name"
+											name="city" minlength="1" maxlength="20" required
+											th:field="*{city}" />
+									</div>
+									<div class="form-group col-md-3">
+										<label for="name">Country:</label> <input type="text"
+											class="form-control" id="country"
+											placeholder="Enter Country Name" name="country" minlength="1"
+											maxlength="20" required th:field="*{country}" />
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapse2">Educational Details</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+
+							<div class="col-md-12">
+								<h3>Graduation</h3>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group col-md-2">
+									<label for="sel1">Qualification:</label> <select
+										name="qualifiaction" id="qualifiaction" class="form-control"
+										required th:field="*{qualifiaction}">
+										<option th:each="grad : ${graduationList}" th:text="${grad}"
+											th:value="${grad}">
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="collegeName">College Name:</label> <input
+										type="text" class="form-control" name="collegeName"
+										id="collegeName" placeholder="Enter College name"
+										minlength="1" maxlength="50" required
+										th:field="*{collegeName}">
+								</div>
+							</div>
+
+
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="university">Branch Name:</label> <input type="text"
+										class="form-control" name="university" id="university"
+										placeholder="Enter University name" minlength="1"
+										maxlength="50" required th:field="*{university}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="percent1">Percentage Name:</label> <input
+										type="text" class="form-control" name="percent1" id="percent1"
+										placeholder="Enter your Percentage" minlength="1"
+										maxlength="50" required th:field="*{percent1}"> <span
+										class="label">%</span>
+								</div>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="start1">Starting Date</label> <input type="text"
+									class="form-control" name="start1" id="start1"
+									placeholder="Enter your Starting course  month/year"
+									minlength="1" maxlength="50" required th:field="*{start1}">
+
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="end1">To</label> <input type="text"
+									class="form-control" name="end1" id="end1"
+									placeholder="Enter your Complete course  month/year"
+									minlength="1" maxlength="50" required th:field="*{end1}">
+							</div>
+
+							<div class="col-md-12">
+								<h3>HSC/Diploma</h3>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-2">
+									<label for="sel1">Qualification:</label> <select
+										name="qualification2" id="qualification2" class="form-control"
+										required th:field="*{qualification2}">
+										<option th:each="grad2 : ${graduationList2}"
+											th:text="${grad2}" th:value="${grad2}">
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="college2">College Name:</label> <input type="text"
+										class="form-control" name="college2" id="college2"
+										placeholder="Enter College name" minlength="1" maxlength="50"
+										required th:field="*{college2}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="university2">Branch Name:</label> <input
+										type="text" class="form-control" name="university2"
+										id="university2" placeholder="Enter University name"
+										minlength="1" maxlength="50" required
+										th:field="*{university2}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="percent2">Percentage :</label> <input type="text"
+										class="form-control" name="percent2" id="percent2"
+										placeholder="Enter your Percentage" minlength="1"
+										maxlength="50" required th:field="*{percent2}"> <span
+										class="label">%</span>
+								</div>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="start2">Starting Date</label> <input type="text"
+									class="form-control" name="start2" id="start2"
+									placeholder="Enter your Starting course  month/year"
+									minlength="1" maxlength="50" required th:field="*{start2}">
+
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="end2">To</label> <input type="text"
+									class="form-control" name="end2" id="end2"
+									placeholder="Enter your Complete course  month/year"
+									minlength="1" maxlength="50" required th:field="*{end2}">
+							</div>
+
+							<div class="col-md-12">
+								<h3>SSC</h3>
+							</div>
+
+							<div class="col-md-12">
+
+								<div class="form-group col-md-2">
+									<label for="sel1">Qualifiaction:</label> <select
+										name="qualification3" id="qualification3" class="form-control"
+										required>
+										<option th:each="grad3 : ${graduationList3}"
+											th:text="${grad3}" th:value="${grad3}">
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="college3">College Name:</label> <input type="text"
+										class="form-control" name="college3" id="college3"
+										placeholder="Enter College name" minlength="1" maxlength="50"
+										required th:field="*{college3}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="university3">Branch Name:</label> <input
+										type="text" class="form-control" name="university3"
+										id="university3" placeholder="Enter University name"
+										minlength="1" maxlength="50" required
+										th:field="*{university3}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="percent3">Percentage </label> <input type="text"
+										class="form-control" name="percent3" id="percent3"
+										placeholder="Enter your Percentage" minlength="1"
+										maxlength="50" required th:field="*{percent3}"> <span
+										class="label">%</span>
+								</div>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="start3">Starting Date</label> <input type="text"
+									class="form-control" name="start3" id="start3"
+									placeholder="Enter your Starting course  month/year"
+									minlength="1" maxlength="50" required th:field="*{start3}">
+
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="end3">To</label> <input type="text"
+									class="form-control" name="end3" id="end3"
+									placeholder="Enter your Complete course  month/year"
+									minlength="1" maxlength="50" required th:field="*{end3}">
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapse3">Project Information</a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="projectname"> Project Name:</label> <input
+										type="text" class="form-control" id="projectname"
+										placeholder="Enter name" name="projectname" minlength="1"
+										maxlength="20" required th:field="*{projectname}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="description"> About Project :</label>
+									<textarea class="form-control" name="description"
+										id="description" rows="4" th:field="*{description}"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="prostart">Starting Date</label> <input type="text"
+									class="form-control" name="prostart" id="prostart"
+									placeholder="Enter your Starting course  month/year"
+									minlength="1" maxlength="50" required th:field="*{prostart}">
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="proend">To</label> <input type="text"
+									class="form-control" name="proend" id="proend"
+									placeholder="Enter your Complete course  month/year"
+									minlength="1" maxlength="50" required th:field="*{proend}">>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="projectname2"> Project Name:</label> <input
+										type="text" class="form-control" id="projectname2"
+										placeholder="Enter name" name="projectname2" minlength="1"
+										maxlength="20" required th:field="*{projectname2}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="description2"> About Project :</label>
+									<textarea class="form-control" name="description2"
+										id="description2" rows="4" th:field="*{description2}"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="prostart2">Starting Date</label> <input type="text"
+									class="form-control" name="prostart2" id="prostart2"
+									placeholder="Enter your Starting course  month/year"
+									minlength="1" maxlength="50" required th:field="*{prostart2}">
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="proend2">To</label> <input type="text"
+									class="form-control" name="proend2" id="proend2"
+									placeholder="Enter your Complete course  month/year"
+									minlength="1" maxlength="50" required th:field="*{proend2}">>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="#collapse4">About Youself</a>
+						</h4>
+					</div>
+					<div id="collapse4" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for=objective> Carrier Objective :</label>
+									<textarea class="form-control" name="objective" id="objective"
+										rows="4" th:field="*{objective}"></textarea>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="twitter">Twitter ID:</label> <input type="text"
+										class="form-control" name="twitter" id="twitter"
+										placeholder="Enter Twitter ID" minlength="1" maxlength="50"
+										required th:field="*{twitter}">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="skills">Your Skill</label> <input type="text"
+										value="html,core java," name="skills" id="skills"
+										data-role="tagsinput" th:field="*{skills}"></input>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group col-md-3">
+									<label for="hobbies">Your Hobbies</label> <input type="text"
+										value="" data-role="tagsinput" name="hobbies" id="hobbies"
+										th:field="*{hobbies}"></input>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+		</div>
+
+
+
+		<div class="col-md-12">
+			<div class="form-group col-md-3">
+				<button type="submit" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+		</form>
+	</div>
+	</div>
+</body>
+
+</html>

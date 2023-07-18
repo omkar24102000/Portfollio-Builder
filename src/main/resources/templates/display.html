@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" th:rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    th:href="@{https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css}" />
+  <link href="../css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="resume-wrapper">
+    <section class="profile section-padding">
+      <div class="container">
+        <div class="picture-resume-wrapper">
+          <div class="picture-resume">
+            <span><img src="" alt="" /></span>
+            <svg version="1.1" viewBox="0 0 350 350">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -9"
+                    result="cm" />
+                </filter>
+              </defs>
+
+              <g filter="url(#goo)">
+                <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130" />
+
+                <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7" />
+                <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7" />
+              </g>
+            </svg>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="name-wrapper">
+          <h1 th:text="${profile.name}">SHANTANU <br />RAJPUT</h1>
+        </div>
+        <div class="clearfix"></div>
+        <div class="contact-info clearfix">
+          <ul class="list-titles">
+            <li>Call</li>
+            <li>Mail</li>
+            <li>Web</li>
+            <li>Home</li>
+          </ul>
+          <ul class="list-content">
+            <li th:text="${profile.mobileNumber}">+91 123 456 7890</li>
+            <li th:text="${profile.email}">contact@webdevtrick.com</li>
+            <li><a href="#">webdevtrick.com</a></li>
+            <li><span th:text="${profile.city}">Mumbai </span> , <span th:text="${profile.country}">India </span></li>
+          </ul>
+        </div>
+        
+        <div class="contact-presentation"
+         th:text="${profile.objective}">
+     
+         To pursue a highly rewarding career, seeking for a job in challenging and healthy work environment demanding all my skills 
+         and efforts to explore and adapt myself in different fields and realize my potential where I get the opportunity for continuous learning. 
+         To serve the nation in technical advancement.
+        </div>
+       
+        <div class="contact-social clearfix">
+          <ul class="list-titles">
+            <li>Twitter</li>
+            <li>LinkedIn</li>
+            <li>Facebook</li>
+          </ul>
+          <ul class="list-content">
+            <li><a href="">@webdevtrick</a></li>
+            <li><a href="">@webdevtrick</a></li>
+            <li><a href="">@webdevtrick</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section-padding">
+      <div class="container">
+        <h3 class="experience-title">Education</h3>
+        
+        <div class="experience-wrapper">
+          <div class="company-wrapper clearfix">
+            <div class="experience-title" >Graduation</div>
+            <div class="time"><span th:text="${profile.start1}">Nov 2012</span> - <span
+                th:text="${profile.end1}">Present</span></div>
+          </div>
+
+          <div class="job-wrapper clearfix">
+            <div class="experience-title"><span th:text="${profile.qualifiaction}">BE/BTECH</span> - <span th:text="${profile.university}"></span></div>
+            <div class="company-description">
+              <p th:text="${profile.collegeName}">SharadChandra Pawar College of Engineering</p>
+              <h3 th:text="${profile.percent1}">78<span>%</span></h3>
+            </div>
+          </div>
+
+          <div class="company-wrapper clearfix">
+            <div class="experience-title" >Class XII / Diploma</div>
+            <div class="time"><span th:text="${profile.start2}">Nov 2010 </span>- <span th:text="${profile.end2}">Dec
+                2016</span></div>
+          </div>
+
+          <div class="job-wrapper clearfix">
+            <div class="experience-title"><span th:text="${profile.qualification2}">Science</span> -  <span th:text="${profile.university2}"></span></div>
+            <div class="company-description">
+              <p th:text="${profile.college2}">Vidyalankar Polytechnic</p>
+              <h3 th:text="${profile.percent2}">78<span>%</span></h3>
+            </div>
+          </div>
+
+          <div class="company-wrapper clearfix">
+          <div class="experience-title" >Class X</div>
+            <div class="time"><span th:text="${profile.start3}">Nov 2010 </span>- <span th:text="${profile.end3}">Dec
+                2016</span></div>
+          </div>
+
+          <div class="job-wrapper clearfix">
+           <div class="experience-title"><span th:text="${profile.qualification3}">Science</span> -  <span th:text="${profile.university3}"></span></div>
+            <div class="company-description">
+              <p th:text="${profile.college3}">Balmohan Vidya Mandir</p>
+              <h3 th:text="${profile.percent3}" >78<span> % </span></h3>
+            </div>
+          </div>
+        </div>
+        <h3 class="experience-title">Projects</h3>
+        <div class="experience-wrapper">
+          <div class="company-wrapper clearfix">
+            <div class="experience-title" th:text="${profile.projectname}">Employee Tracker</div>
+            <div class="time"><span th:text="${profile.prostart}">Nov 2010 </span>- <span
+                th:text="${profile.proend}">Dec 2016</span></div>
+          </div>
+        </div>
+        <div class="job-wrapper clearfix">
+          <div class="experience-title" th:text="${profile.description}">
+            ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod
+            congue nisi, nec consequat quam. In consectetur faucibus turpis
+            eget laoreet. Sed nec imperdiet purus.
+          </div>
+        </div>
+        <div class="experience-wrapper">
+          <div class="company-wrapper clearfix">
+            <div class="experience-title" th:text="${profile.projectname2}">Worker Tracker</div>
+            <div class="time"><span th:text="${profile.prostart2}">Nov 2010 </span>- <span
+                th:text="${profile.start1}">Dec 2016</span></div>
+          </div>
+        </div>
+        <div class="job-wrapper clearfix">
+          <div class="experience-title" th:text="${profile.description2}">
+            ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod
+            congue nisi, nec consequat quam. In consectetur faucibus turpis
+            eget laoreet. Sed nec imperdiet purus.
+          </div>
+        </div>
+
+        <div class="section-wrapper clearfix">
+          <h3 class="section-title">Skills</h3>
+           <ul th:each="skill : ${profile.skillsList}">
+            <li class="skill-percentage" th:text="${skill}">JAVA</li>
+          </ul>
+        </div>
+        <div class="section-wrapper clearfix">
+          <h3 class="section-title">Hobbies</h3>
+          <ul th:each="hobbie : ${profile.hobbiesList}">
+            <li class="skill-percentage" th:text="${hobbie}">Cricket</li>
+          </ul>
+          
+        </div>
+      </div>
+    </section>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"
+    th:src="@{https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js}"></script>
+  <script src="../js/function.js" th:src="@{/js/function.js}"></script>
+</body>
+
+</html>
